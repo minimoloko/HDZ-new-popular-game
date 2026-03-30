@@ -1,6 +1,6 @@
-using UnityEngine;
+п»їusing UnityEngine;
 
-#if UNITY_EDITOR // Это нужно, чтобы работало в редакторе
+#if UNITY_EDITOR // Р—Р°РіСЂСѓР¶Р°РµРј Р±РёР±Р»РёРѕС‚РµРєСѓ UnityEditor РµСЃР»Рё РѕРЅР° РїСЂРёСЃСѓС‚СЃС‚РІСѓРµС‚
 using UnityEditor;
 #endif
 
@@ -8,11 +8,11 @@ public class GameManager : MonoBehaviour
 {
     public void QuitGame()
     {
+        Debug.Log("Quitting");
 #if UNITY_EDITOR
-        EditorApplication.isPlaying = false;
+        EditorApplication.isPlaying = false; // РћСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РёРіСЂСѓ РІ СЂРµРґР°РєС‚РѕСЂРµ
 #else
-        // Если это сборка — закрываем игру
-        Application.Quit();
+        Application.Quit(); // РћСЃС‚Р°РЅРѕРІР»РёРІР°РµС‚ РёРіСЂСѓ, РµСЃР»Рё РѕРЅР° Р·Р°РїСѓС‰РµРЅР° РІРЅРµ СЂРµРґР°РєС‚РѕСЂР°.
 #endif
     }
 }
