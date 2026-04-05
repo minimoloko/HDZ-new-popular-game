@@ -3,11 +3,12 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using UnityEngine.Events;
+using UnityEngine.InputSystem; // для новой системы
 
 [System.Serializable]
 public class DialogueLine
 {
-    public string speakerName; 
+    public string speakerName;
     public Sprite avatar;
     [TextArea(3, 5)]
     public string text;
@@ -33,6 +34,7 @@ public class DialogueManager : MonoBehaviour
     private int currentIndex = 0;
     private bool isTyping = false;
     private string currentText = "";
+    private Coroutine typingCoroutine; // для контроля текста
 
     void Start()
     {
@@ -44,14 +46,16 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        // Проверка клика через новую систему
+        if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             if (isTyping)
             {
                 // show all text if isTyping
-                StopCoroutine("TypeText");
+                if (typingCoroutine != null) StopCoroutine(typingCoroutine);
                 textField.text = currentText;
                 isTyping = false;
+                dialogueLines[currentIndex].onLineComplete?.Invoke(); // call event there too
             }
             else
             {
@@ -95,7 +99,10 @@ public class DialogueManager : MonoBehaviour
 
         // start typing effect lol
         currentText = line.text;
-        StartCoroutine(TypeText(line.text));
+
+        if (typingCoroutine != null) StopCoroutine(typingCoroutine);
+
+        typingCoroutine = StartCoroutine(TypeText(currentText));
     }
 
     IEnumerator TypeText(string text)
@@ -103,6 +110,7 @@ public class DialogueManager : MonoBehaviour
         isTyping = true;
         textField.text = "";
 
+        // Посимвольный вывод
         foreach (char letter in text.ToCharArray())
         {
             textField.text += letter;
@@ -111,12 +119,12 @@ public class DialogueManager : MonoBehaviour
 
         isTyping = false;
         dialogueLines[currentIndex].onLineComplete?.Invoke(); // call event
-        yield return new WaitForSeconds(dialogueLines[currentIndex].displayTime);
     }
 
     void EndDialogue()
     {
         gameObject.SetActive(false);
+        GameData.dialogueIsEnd = true;
         Debug.Log("all dialogs is end");
         // end
     }
