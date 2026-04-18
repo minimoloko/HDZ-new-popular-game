@@ -551,8 +551,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 110, y: -135}
-  m_SizeDelta: {x: 650, y: 100}
+  m_AnchoredPosition: {x: 120, y: -140}
+  m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &381434590
 MonoBehaviour:
@@ -689,7 +689,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 3, y: 70}
-  m_SizeDelta: {x: 200, y: 70}
+  m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &649106351
 MonoBehaviour:
@@ -1024,7 +1024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TypewriterEffect
   textElement: {fileID: 1650278300}
-  fullText: "\u0422\u044B\u043A\u0430\u0442\u044C \u0447\u0443\u0442\u044C \u043B\u0435\u0432\u0435\u0435"
+  fullText: s\s s\s s\s s\s s\s s\s s\s s\s s\s s\s s\s s\s
   delay: 0.05
   waitToClose: 3
 --- !u!1 &855893298
@@ -1288,7 +1288,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 873030125552458140, guid: 23577bc134fb6a54bbc88b28a53faa31, type: 3}
+  m_Sprite: {fileID: 788283944, guid: e61f50f5dd16df4439c8cb6e3462b38a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1376,7 +1376,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -290, y: -110}
-  m_SizeDelta: {x: 100, y: 50}
+  m_SizeDelta: {x: 90, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1295109292
 MonoBehaviour:
@@ -1513,7 +1513,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 5, y: 70}
-  m_SizeDelta: {x: 200, y: 70}
+  m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1650278300
 MonoBehaviour:
@@ -1728,9 +1728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TypewriterEffect
   textElement: {fileID: 649106351}
-  fullText: "\u0427\u0443\u0432\u0430\u043A, \u0445\u0432\u0430\u0442\u0438\u0442
-    \u0438\u0433\u0440\u0430\u0442\u044C\u0441\u044F, \u043F\u043E\u0440\u0430 \u0437\u0430\u043F\u0443\u0441\u043A\u0430\u0442\u044C
-    \u0448\u043E\u0443"
+  fullText: 14881488148814881488148814881488
   delay: 0.05
   waitToClose: 3
 --- !u!1 &1667498722
@@ -2010,9 +2008,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
   dialogueLines:
-  - speakerName: "\u041F\u0430\u0432\u0435\u043B"
-    avatar: {fileID: 3290860863259212197, guid: 77101f974aa8b2e43a8fc7c21f8033d3, type: 3}
-    text: "\u041A\u0445\u043C-\u041A\u0445\u043C"
+  - speakerName: 
+    avatar: {fileID: 0}
+    text: "\u041F\u043E \u043C\u043D\u043E\u0433\u043E\u0447\u0438\u0441\u043B\u0435\u043D\u043D\u044B\u043C
+      \u0437\u0430\u044F\u0432\u043A\u0430\u043C..."
     displayTime: 0
     onLineComplete:
       m_PersistentCalls:
@@ -2117,8 +2116,11 @@ MonoBehaviour:
     avatar: {fileID: -3046442254009277630, guid: a377a5da0c8b48043a700214f6939943, type: 3}
     text: "\u041C\u044B \u043E\u0447\u0435\u043D\u044C \u0434\u043E\u043B\u0433\u043E
       \u0434\u0443\u043C\u0430\u043B\u0438, \u0447\u0435\u043C \u0436\u0435 \u043D\u0430\u043F\u043E\u043B\u043D\u0438\u0442\u044C
-      \u043D\u0430\u0448\u0435 \u0448\u043E\u0443. \u041C\u044B \u043F\u043E\u0434\u043D\u044F\u043B\u0438
-      \u0442\u0443\u0447\u0443 \u0438\u0441\u0442\u043E\u0447\u043D\u0438\u043A\u043E\u0432,\r\n\u0438
+      \u043D\u0430\u0448\u0435 \u043D\u0430\u0438\u043F\u0440\u0435\u043A\u0440\u0430\u0441\u043D\u0435\u0439\u0448\u0435\u0435
+      \u0448\u043E\u0443. \u041C\u044B \u043F\u043E\u0434\u043D\u044F\u043B\u0438
+      \u0442\u0443\u0447\u0443 \u0438\u0441\u0442\u043E\u0447\u043D\u0438\u043A\u043E\u0432,
+      \u043F\u0440\u043E\u0430\u043D\u0430\u043B\u0438\u0437\u0438\u0440\u043E\u0432\u0430\u043B\u0438
+      \u0442\u0443\u0447\u0443 \u0438\u0441\u0442\u043E\u0447\u043D\u0438\u043A\u043E\u0432\r\n\u0438
       \u043F\u0440\u0438\u0448\u043B\u0438 \u043A \u0432\u044B\u0432\u043E\u0434\u0443,
       \u0447\u0442\u043E \u043C\u044B \u0431\u0443\u0434\u0435\u043C \u0441\u043D\u0438\u043C\u0430\u0442\u044C...."
     displayTime: 0
