@@ -8,17 +8,21 @@ public class EnemyAI : MonoBehaviour
     public int hp = 3;
     public EnemyHPBar hpBar;
     private int maxHp;
+
     [Header("patrul")]
     public Transform edgeCheck;
     public LayerMask groundLayer;
+    public float edgeCheckRadius = 0.3f;
 
     [Header("anti stump")]
     public float stuckTimeLimit = 0.3f;
 
+    private float edgeCooldown = 0f;
+    private float edgeCooldownTime = 0.5f;
+
     private int direction = 1;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
-
 
     private Vector2 lastPosition;
     private float stuckTimer = 0f;
@@ -35,13 +39,18 @@ public class EnemyAI : MonoBehaviour
     {
         rb.linearVelocity = new Vector2(speed * direction, rb.linearVelocity.y);
 
-        if (edgeCheck != null)
+        if (edgeCooldown <= 0 && edgeCheck != null)
         {
-            bool isGroundAhead = Physics2D.OverlapCircle(edgeCheck.position, 0.2f, groundLayer);
+            bool isGroundAhead = Physics2D.OverlapCircle(edgeCheck.position, edgeCheckRadius, groundLayer);
             if (!isGroundAhead)
             {
                 TurnAround();
+                edgeCooldown = edgeCooldownTime;
             }
+        }
+        else
+        {
+            edgeCooldown -= Time.deltaTime;
         }
 
         CheckIfStuck();
@@ -86,12 +95,21 @@ public class EnemyAI : MonoBehaviour
     {
         direction *= -1;
     }
-    
+
     public void TakeDamage(int damage)
     {
-        hp-=damage;
+        hp -= damage;
         if (hpBar != null) hpBar.UpdateBar(hp, maxHp);
         if (hp <= 0)
             Destroy(gameObject);
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (edgeCheck != null)
+        {
+            Gizmos.color = edgeCooldown > 0 ? Color.yellow : Color.red;
+            Gizmos.DrawWireSphere(edgeCheck.position, edgeCheckRadius);
+        }
     }
 }
