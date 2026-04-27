@@ -18,7 +18,7 @@ public class ScreenFader : MonoBehaviour
             float alpha = Mathf.Lerp(1, 0, timer / fadeDuration);
             fadeImage.color = new Color(startColor.r, startColor.g, startColor.b, alpha); // fading
 
-            yield return null; // wait frame
+            yield return new WaitForEndOfFrame(); // wait frame
         }
 
         fadeImage.gameObject.SetActive(false);
