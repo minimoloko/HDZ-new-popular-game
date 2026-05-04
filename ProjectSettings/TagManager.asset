@@ -3,25 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-<<<<<<< HEAD
   tags: []
-=======
-  tags:
-  - Enemy
->>>>>>> main
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-<<<<<<< HEAD
-  - CommentBg
-=======
-  - Enemy
->>>>>>> main
+  - 
   - Water
   - UI
-  - Ground
-  - Player
+  - 
+  - 
   - 
   - 
   - 
