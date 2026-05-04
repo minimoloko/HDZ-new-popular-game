@@ -10,9 +10,10 @@ public class EnemyAI : MonoBehaviour
     private int maxHp;
 
     [Header("patrul")]
-    public Transform edgeCheck;
+    public Transform edgeCheck1;
+    public Transform edgeCheck2;
     public LayerMask groundLayer;
-    public float edgeCheckRadius = 0.3f;
+    public float edgeCheckRadius = 0.4f;
 
     [Header("anti stump")]
     public float stuckTimeLimit = 0.3f;
@@ -39,9 +40,12 @@ public class EnemyAI : MonoBehaviour
     {
         rb.linearVelocity = new Vector2(speed * direction, rb.linearVelocity.y);
 
-        if (edgeCooldown <= 0 && edgeCheck != null)
+        if (edgeCooldown <= 0 && edgeCheck1
+ != null)
         {
-            bool isGroundAhead = Physics2D.OverlapCircle(edgeCheck.position, edgeCheckRadius, groundLayer);
+            bool isGroundAhead = Physics2D.OverlapCircle(edgeCheck1
+    .position, edgeCheckRadius, groundLayer) || Physics2D.OverlapCircle(edgeCheck2
+    .position, edgeCheckRadius, groundLayer);
             if (!isGroundAhead)
             {
                 TurnAround();
@@ -106,10 +110,12 @@ public class EnemyAI : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        if (edgeCheck != null)
+        if (edgeCheck1
+ != null)
         {
             Gizmos.color = edgeCooldown > 0 ? Color.yellow : Color.red;
-            Gizmos.DrawWireSphere(edgeCheck.position, edgeCheckRadius);
+            Gizmos.DrawWireSphere(edgeCheck1
+    .position, edgeCheckRadius);
         }
     }
 }

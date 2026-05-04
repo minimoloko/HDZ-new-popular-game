@@ -17,15 +17,16 @@ public class BulletScript : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            EnemyAI enemyScript = other.GetComponent<EnemyAI>();
+            BossController boss = other.GetComponentInParent<BossController>();
+            if (boss == null) boss = other.GetComponent<BossController>();
 
-            if (enemyScript != null)
-            {
-                enemyScript.TakeDamage(1);
-            }
-        }
-        else if (other.CompareTag("Player"))
-        {
+            EnemyAI enemy = other.GetComponentInParent<EnemyAI>();
+            if (enemy == null) enemy = other.GetComponent<EnemyAI>();
+
+            if (boss != null)
+                boss.TakeDamage(1);
+            else if (enemy != null)
+                enemy.TakeDamage(1);
         }
 
         Destroy(gameObject);
