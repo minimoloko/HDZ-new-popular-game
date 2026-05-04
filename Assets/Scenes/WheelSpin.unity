@@ -949,7 +949,7 @@ RotationConstraint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1030225894}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Weight: 0.03
   m_RotationAtRest: {x: 0, y: 0, z: 0}
@@ -1805,6 +1805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WheelSpinBehavior
   rotationValue: 0
   rotationSpeed: 0
+  gameIcons: []
   gameScenes: []
 --- !u!1 &2027093258
 GameObject:
