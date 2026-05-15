@@ -3,27 +3,34 @@ using System.Collections;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class WheelSpinBehavior : MonoBehaviour
 {
+    static int gamesSelected = 0;
     public float rotationValue = 0.0f;
     public float rotationSpeed = 0.0f;
     private Animator anim;
     private Unity.Mathematics.Random random;
     public Sprite[] gameIcons = new Sprite[8];
-    public string[] gameScenes = new string[8];
+    public string[] gameScenes = new string[3];
     private bool finished;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         anim = GetComponent<Animator>();
-        anim.SetFloat("duration", UnityEngine.Random.Range(1.75f, 2.75f));
+        anim.SetFloat("duration", 1.75f);
+        if (gamesSelected == 1)
+            rotationValue = -45.0f;
+        if (gamesSelected == 2)
+            anim.SetBool("explosion", true);
+
         for (int i = 0; i < gameIcons.Length; i++)
         {
             var icon = gameIcons[i];
-            var image = GameObject.Find("Slot" + i).GetComponent<Image>();
+            var image = GameObject.Find("GameImage" + i + "").GetComponent<UnityEngine.UI.Image>();
             image.sprite = icon;
         }
     }
@@ -50,10 +57,8 @@ public class WheelSpinBehavior : MonoBehaviour
 
     void FinishSpin()
     {
-        int gameIndex = Mathf.RoundToInt((rotationValue % 360.0f) / 45.0f);
-        gameIndex = gameIndex == 8 ? 0 : gameIndex;
-        gameIndex = gameIndex == -1 ? 7 : gameIndex;
-
+        int gameIndex = gamesSelected++;
+        Debug.Log(gameIndex);
         StartCoroutine(WaitAndLoad(gameScenes[gameIndex], 0.5f));
     }
 
