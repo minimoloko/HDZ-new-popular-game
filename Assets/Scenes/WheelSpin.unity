@@ -1805,15 +1805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WheelSpinBehavior
   rotationValue: 0
   rotationSpeed: 0
-  gameIcons:
-  - {fileID: 3267237754101856563, guid: 0fb3b004e70be774f81fc0d9f9177abf, type: 3}
-  - {fileID: 21300000, guid: d0222063b0e20cb45a3ca7aeda647526, type: 3}
-  - {fileID: 3267237754101856563, guid: 0fb3b004e70be774f81fc0d9f9177abf, type: 3}
-  - {fileID: 21300000, guid: d0222063b0e20cb45a3ca7aeda647526, type: 3}
-  - {fileID: 3267237754101856563, guid: 0fb3b004e70be774f81fc0d9f9177abf, type: 3}
-  - {fileID: 21300000, guid: d0222063b0e20cb45a3ca7aeda647526, type: 3}
-  - {fileID: 3267237754101856563, guid: 0fb3b004e70be774f81fc0d9f9177abf, type: 3}
-  - {fileID: 21300000, guid: d0222063b0e20cb45a3ca7aeda647526, type: 3}
+  gameIcons: []
   gameScenes:
   - PaaGame
   - SniperGame
