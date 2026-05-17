@@ -6,11 +6,17 @@ using System.Collections;
 public class TypewriterEffect : MonoBehaviour, IPointerClickHandler
 {
     public TextMeshProUGUI textElement;
+    public GameObject panel;
     public string fullText;
     public float delay = 0.05f;
     public int waitToClose = 3  ;
 
     private Coroutine typingCoroutine;
+
+    public void Start()
+    {
+        panel.SetActive(false);
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -24,6 +30,7 @@ public class TypewriterEffect : MonoBehaviour, IPointerClickHandler
                 return;
             }
             textElement.gameObject.SetActive(true);
+            panel.SetActive(true);
             typingCoroutine = StartCoroutine(TypeText());
         }
     }
@@ -40,7 +47,7 @@ public class TypewriterEffect : MonoBehaviour, IPointerClickHandler
         yield return new WaitForSeconds(waitToClose);
 
         textElement.gameObject.SetActive(false);
-
+        panel.SetActive(false);
         typingCoroutine = null;
     }
 }
