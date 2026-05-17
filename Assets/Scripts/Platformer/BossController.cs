@@ -138,7 +138,16 @@ public class BossController : MonoBehaviour
     {
         currentHealth -= amount;
         if (hpBar != null) hpBar.UpdateBar(currentHealth, maxHealth);
-        if (currentHealth <= 0) Destroy(gameObject);
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+            AudioManager am = FindObjectOfType<AudioManager>();
+            if (am != null)
+            {
+                am.StopMusic();
+                Destroy(am.gameObject);
+            }
+        }
     }
 
     void OnDrawGizmosSelected()

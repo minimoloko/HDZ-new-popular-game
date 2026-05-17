@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SniperGame.unity
     guid: 22a492ad74be8e54f90b32cd08720681
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 5813802ee3d42294cb69fdab17574ae6
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

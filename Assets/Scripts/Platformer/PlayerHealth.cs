@@ -50,6 +50,12 @@ public class PlayerHealth : MonoBehaviour
         AudioManager.Instance.PlaySFX(AudioManager.Instance.deathSound);
         Debug.Log("death!");
         Destroy(gameObject);
+        AudioManager am = FindObjectOfType<AudioManager>();
+        if (am != null)
+        {
+            am.StopMusic();
+            Destroy(am.gameObject);
+        }
     }
     // miganie i neuazvimost
     System.Collections.IEnumerator InvincibilityRoutine()
