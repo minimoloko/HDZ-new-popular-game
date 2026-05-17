@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 
 public class WheelSpinBehavior : MonoBehaviour
 {
+    public SceneChanger sceneManagerComponent;
     public float rotationValue = 0.0f;
     public float rotationSpeed = 0.0f;
     private Animator anim;
@@ -19,6 +20,11 @@ public class WheelSpinBehavior : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+
+        if (GameData.PaGameIsComplected && GameData.SniperGameIsComplected)
+        {
+            sceneManagerComponent.LoadScene("EndCredits");
+        }
         anim.SetFloat("duration", UnityEngine.Random.Range(1.75f, 2.75f));
         for (int i = 0; i < gameIcons.Length; i++)
         {

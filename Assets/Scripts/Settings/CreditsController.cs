@@ -3,11 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class CreditsAutoSwitch : MonoBehaviour
 {
+
     [Header("Settings")]
+    public SceneChanger sceneChangerComponent;
     public float duration = 120f;
     public string mainMenuScene = "MainMenu"; 
 
-    [Header("Прокрутка")]
+    [Header("a  ")]
     public float scrollSpeed = 1.8f;
 
     private float timer = 0f;
@@ -32,7 +34,7 @@ public class CreditsAutoSwitch : MonoBehaviour
 
         if (timer >= duration)
         {
-            SceneManager.LoadScene(mainMenuScene);
+            sceneChangerComponent.LoadScene("MainMenu");
         }
     }
 }
