@@ -1,5 +1,8 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class SniperGameManager : MonoBehaviour
 {
@@ -81,11 +84,26 @@ public class SniperGameManager : MonoBehaviour
     void ShowGameOverPanel(string message)
     {
         Time.timeScale = 0f;
+        AudioManager am = FindObjectOfType<AudioManager>();
+        if (am != null)
+        {
+            am.StopMusic();
+            Destroy(am.gameObject);
+        }
 
         if (gameOverPanel != null)
             gameOverPanel.SetActive(true);
 
         if (gameOverText != null)
             gameOverText.text = message;
+
+        StartCoroutine(LoadStartLobbyAfterDelay(1));
+    }
+
+    IEnumerator LoadStartLobbyAfterDelay(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
+
+        SceneManager.LoadScene("MainMenu");
     }
 }
