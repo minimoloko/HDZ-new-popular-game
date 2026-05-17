@@ -23,7 +23,7 @@ public class Shooter : MonoBehaviour
                 Debug.Log("Нет патронов или перезарядка!");
                 return;
             }
-
+            AudioManager.Instance?.PlaySFX(AudioManager.Instance.shootSound, 0.4f);
             Shoot();
         }
     }

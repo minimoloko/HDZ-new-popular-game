@@ -1,22 +1,12 @@
 using UnityEngine;
-using System.Collections;
 
-public class Zombie : MonoBehaviour
+public class Zombie : Enemy
 {
-    [Header("Основные параметры")]
-    public string zombieName = "Обычный зомби";
-    public int health = 1;
-    public float speed = 1.5f;
-
-    [Header("Внешний вид")]
-    public Color color = Color.green;
-    public Vector3 scale = Vector3.one;
-
     [Header("Траектория")]
     public TrajectoryType trajectory = TrajectoryType.Straight;
     public float amplitude = 1f;
     public float frequency = 2f;
-    public float damageLineX = -4f;  
+    public float damageLineX = -4f;
 
     [Header("Награда")]
     public int scoreReward = 10;
@@ -28,27 +18,22 @@ public class Zombie : MonoBehaviour
         ZigZag
     }
 
-    private SpriteRenderer sr;
     private float startY;
     private float timer;
     private int zigZagDirection = 1;
 
-    void Awake()
+    protected override void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
-    }
-
-    void Start()
-    {
-        if (sr != null) sr.color = color;
-        transform.localScale = scale;
+        base.Start();
         startY = transform.position.y;
     }
 
-    void Update()
+    protected override void Update()
     {
+        // Движение влево
         transform.Translate(Vector3.left * speed * Time.deltaTime);
 
+        // Проверка на линию урона
         if (transform.position.x < damageLineX)
         {
             GameObject mel = GameObject.FindGameObjectWithTag("Player");
@@ -58,13 +43,14 @@ public class Zombie : MonoBehaviour
                 if (melScript != null)
                 {
                     melScript.TakeDamage(1);
-                    Debug.Log($"{zombieName} пробежал черту и нанёс урон!");
+                    Debug.Log($"{enemyName} пробежал черту и нанёс урон!");
                 }
             }
             Destroy(gameObject);
             return;
         }
 
+        // Траектории
         switch (trajectory)
         {
             case TrajectoryType.Sine:
@@ -85,17 +71,17 @@ public class Zombie : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public override void TakeDamage(int damage)
     {
+        AudioManager.Instance?.PlaySFX(AudioManager.Instance.zombieHurt);
         health -= damage;
-        Debug.Log($"{zombieName} получил урон. Осталось здоровья: {health}");
+        Debug.Log($"{enemyName} получил урон. Осталось здоровья: {health}");
 
         if (health <= 0)
         {
             if (SniperGameManager.Instance != null)
                 SniperGameManager.Instance.AddKill();
-
-            Destroy(gameObject);
+            Die();
         }
         else
         {
@@ -103,22 +89,18 @@ public class Zombie : MonoBehaviour
         }
     }
 
-    IEnumerator FlashRed()
+    protected override void Die()
     {
-        if (sr != null)
-        {
-            Color original = sr.color;
-            sr.color = Color.red;
-            yield return new WaitForSeconds(0.1f);
-            sr.color = original;
-        }
+        AudioManager.Instance?.PlaySFX(AudioManager.Instance.zombieDeath);
+        Debug.Log($"{enemyName} убит! +{scoreReward} очков");
+        base.Die();
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log($"{zombieName} коснулся Мела!");
+            Debug.Log($"{enemyName} коснулся Мела!");
             Destroy(gameObject);
         }
     }

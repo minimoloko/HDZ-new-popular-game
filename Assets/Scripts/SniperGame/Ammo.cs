@@ -45,6 +45,7 @@ private int currentAmmo;
 
     void StartReload()
     {
+        AudioManager.Instance?.PlaySFX(AudioManager.Instance.reloadSound);
         if (isReloading) return;
         StartCoroutine(Reload());
     }

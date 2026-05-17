@@ -20,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.hurtSound);
         if (isInvincible) return;
 
         currentHealth -= damage;
@@ -46,6 +47,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.deathSound);
         Debug.Log("death!");
         Destroy(gameObject);
     }
