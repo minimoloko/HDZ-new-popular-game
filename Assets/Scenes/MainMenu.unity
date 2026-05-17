@@ -601,6 +601,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 490638256}
   m_CullTransparentMesh: 1
+--- !u!1 &499736171
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 499736173}
+  - component: {fileID: 499736172}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &499736172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499736171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f432eaab8747b114f96caf6688c0c775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  shootSound: {fileID: 0}
+  reloadSound: {fileID: 0}
+  hurtSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  zombieHurt: {fileID: 0}
+  zombieDeath: {fileID: 0}
+  bossDeath: {fileID: 0}
+  backgroundMusic: {fileID: 8300000, guid: c84f39eaeff9b1f43ab47a2f51a878f7, type: 3}
+--- !u!4 &499736173
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499736171}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.23003, y: -1.8407, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1557,3 +1609,4 @@ SceneRoots:
   - {fileID: 1101793182}
   - {fileID: 1155167927}
   - {fileID: 1446980405}
+  - {fileID: 499736173}
