@@ -27,6 +27,7 @@ public class MelMovement : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        AudioManager.Instance?.PlaySFX(AudioManager.Instance.hurtSound);
         health -= damage;
         Debug.Log($"Мел получил урон! Осталось здоровья: {health}");
 
@@ -45,6 +46,7 @@ public class MelMovement : MonoBehaviour
 
     void Die()
     {
+        AudioManager.Instance?.PlaySFX(AudioManager.Instance.deathSound);
         Debug.Log("Мел погиб!");
 
         if (SniperGameManager.Instance != null)

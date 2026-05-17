@@ -70,28 +70,28 @@ public class ZombieSpawner : MonoBehaviour
             int type = Random.Range(0, 3);
             switch (type)
             {
-                case 0: 
+                case 0:
                     zScript.health = 1;
                     zScript.speed = 1.5f;
-                    zScript.color = Color.white;
+                    zScript.color = Color.white; 
                     zScript.scale = Vector3.one;
-                    zScript.zombieName = "Обычный зомби";
+                    zScript.enemyName = "Обычный зомби";
                     if (normalZombieSprite != null) sr.sprite = normalZombieSprite;
                     break;
-                case 1: 
+                case 1:
                     zScript.health = 3;
                     zScript.speed = 1f;
-                    zScript.color = new Color(0.8f, 0.7f, 0.6f);
+                    zScript.color = Color.white;
                     zScript.scale = new Vector3(1.2f, 1.2f, 1f);
-                    zScript.zombieName = "Танк-зомби";
+                    zScript.enemyName = "Танк-зомби";
                     if (tankZombieSprite != null) sr.sprite = tankZombieSprite;
                     break;
-                case 2: 
+                case 2:
                     zScript.health = 1;
                     zScript.speed = 3f;
                     zScript.color = Color.white;
                     zScript.scale = new Vector3(0.8f, 0.8f, 1f);
-                    zScript.zombieName = "Быстрый зомби";
+                    zScript.enemyName = "Быстрый зомби";
                     if (fastZombieSprite != null) sr.sprite = fastZombieSprite;
                     break;
             }

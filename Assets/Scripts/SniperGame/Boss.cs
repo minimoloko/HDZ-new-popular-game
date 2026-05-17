@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Boss : MonoBehaviour
+public class Boss : Enemy
 {
     [Header("Настройки босса")]
     public GameObject weakPointPrefab;
@@ -15,26 +15,27 @@ public class Boss : MonoBehaviour
     [Header("Движение")]
     public float idleSpeed = 0f;
     public float walkSpeed = 1.5f;
-    private float currentSpeed;
+    public float killLineX = -8f;
 
-
-    public float killLineX = -8f;  // линия убийства 
-    private bool hasKilled = false; // чтобы не убивал несколько раз
+    private bool hasKilled = false;
     private int activePoints = 0;
     private bool isSummoning = false;
     private bool isDefeated = false;
 
-    void Start()
+    protected override void Start()
     {
-        currentSpeed = walkSpeed;
+        base.Start();
+        speed = walkSpeed;
         SpawnWave();
     }
 
-    void Update()
+    protected override void Update()
     {
-        transform.Translate(Vector3.left * currentSpeed * Time.deltaTime);
+        if (!isSummoning && !isDefeated)
+        {
+            transform.Translate(Vector3.left * speed * Time.deltaTime);
+        }
 
-        // Проверка на пересечение линии убийства
         if (!hasKilled && transform.position.x < killLineX)
         {
             KillPlayer();
@@ -77,7 +78,7 @@ public class Boss : MonoBehaviour
     void StartSummoning()
     {
         isSummoning = true;
-        currentSpeed = idleSpeed;
+        speed = idleSpeed;
         Debug.Log($"Босс призывает {zombiesToSummon} зомби!");
 
         if (zombieSpawner != null)
@@ -89,13 +90,14 @@ public class Boss : MonoBehaviour
     public void OnSummonedZombiesDead()
     {
         isSummoning = false;
-        currentSpeed = walkSpeed;
+        speed = walkSpeed;
         currentWave++;
         SpawnWave();
     }
 
     void Defeat()
     {
+        AudioManager.Instance?.PlaySFX(AudioManager.Instance.bossDeath);
         isDefeated = true;
         Debug.Log("БОСС ПОБЕЖДЁН!");
 
@@ -123,6 +125,6 @@ public class Boss : MonoBehaviour
             }
         }
 
-    Time.timeScale = 0f;
+        Time.timeScale = 0f;
     }
 }
