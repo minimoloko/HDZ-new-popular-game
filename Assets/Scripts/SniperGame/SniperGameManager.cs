@@ -7,6 +7,7 @@ using System.Collections;
 public class SniperGameManager : MonoBehaviour
 {
     public static SniperGameManager Instance;
+    public SceneChanger SceneChangerComponent;
 
     [Header("—чЄтчик убийств")]
     public int killCount = 0;
@@ -83,7 +84,6 @@ public class SniperGameManager : MonoBehaviour
 
     void ShowGameOverPanel(string message)
     {
-        Time.timeScale = 0f;
         AudioManager am = FindObjectOfType<AudioManager>();
         if (am != null)
         {
@@ -97,13 +97,14 @@ public class SniperGameManager : MonoBehaviour
         if (gameOverText != null)
             gameOverText.text = message;
 
-        StartCoroutine(LoadStartLobbyAfterDelay(1));
+        SceneChangerComponent.LoadScene("WheelSpin");
+        
     }
 
     IEnumerator LoadStartLobbyAfterDelay(float delay)
     {
         yield return new WaitForSecondsRealtime(delay);
 
-        SceneManager.LoadScene("MainMenu");
+        SceneChangerComponent.LoadScene("WheelSpin");
     }
 }
