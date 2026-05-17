@@ -59,7 +59,12 @@ public class WheelSpinBehavior : MonoBehaviour
         int gameIndex = Mathf.RoundToInt((rotationValue % 360.0f) / 45.0f);
         gameIndex = gameIndex == 8 ? 0 : gameIndex;
         gameIndex = gameIndex == -1 ? 7 : gameIndex;
-
+        AudioManager am = FindObjectOfType<AudioManager>();
+        if (am != null)
+        {
+            am.StopMusic();
+            Destroy(am.gameObject);
+        }
         StartCoroutine(WaitAndLoad(gameScenes[gameIndex], 0.5f));
     }
 
