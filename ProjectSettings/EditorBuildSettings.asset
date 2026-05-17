@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
@@ -14,6 +14,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Settings.unity
     guid: 8bfbb619500d75e4494c92c37a66937d
+  - enabled: 1
+    path: Assets/Scenes/WheelSpin.unity
+    guid: bb328ef8bf72fca4bae0061268b6f98a
+  - enabled: 1
+    path: Assets/Scenes/PaaGame.unity
+    guid: c247e83c8d1585f408c22f7c92ce1515
+  - enabled: 1
+    path: Assets/Scenes/SniperGame.unity
+    guid: 22a492ad74be8e54f90b32cd08720681
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
