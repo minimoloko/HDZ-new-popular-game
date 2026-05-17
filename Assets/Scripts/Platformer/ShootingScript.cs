@@ -37,6 +37,7 @@ public class Shooting : MonoBehaviour
                 Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
                 currentAmmo--;
                 UpdateAmmoUI();
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.shootSound);
             }
             else
             {

@@ -98,10 +98,14 @@ public class EnemyAI : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.zombieHurt);
         hp -= damage;
         if (hpBar != null) hpBar.UpdateBar(hp, maxHp);
         if (hp <= 0)
+        {
             Destroy(gameObject);
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.zombieDeath);
+        }
     }
 
     void OnDrawGizmosSelected()
