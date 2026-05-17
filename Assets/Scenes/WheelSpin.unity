@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 285763185}
   - component: {fileID: 285763184}
   m_Layer: 5
-  m_Name: GameImage
+  m_Name: GameImage7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -669,7 +669,7 @@ GameObject:
   - component: {fileID: 875187005}
   - component: {fileID: 875187004}
   m_Layer: 5
-  m_Name: GameImage
+  m_Name: GameImage5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -841,7 +841,7 @@ GameObject:
   - component: {fileID: 938307373}
   - component: {fileID: 938307372}
   m_Layer: 5
-  m_Name: GameImage
+  m_Name: GameImage1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1013,7 +1013,6 @@ GameObject:
   - component: {fileID: 1147990889}
   - component: {fileID: 1147990891}
   - component: {fileID: 1147990890}
-  - component: {fileID: 1147990893}
   - component: {fileID: 1147990892}
   m_Layer: 5
   m_Name: Explosion
@@ -1054,7 +1053,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1099,22 +1098,6 @@ RotationConstraint:
   m_Sources:
   - sourceTransform: {fileID: 2017083559}
     weight: -1
---- !u!111 &1147990893
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1147990888}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
 --- !u!1 &1449130771
 GameObject:
   m_ObjectHideFlags: 0
@@ -1658,7 +1641,7 @@ GameObject:
   - component: {fileID: 1767133669}
   - component: {fileID: 1767133668}
   m_Layer: 5
-  m_Name: GameImage
+  m_Name: GameImage4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1733,7 +1716,7 @@ GameObject:
   - component: {fileID: 1915460577}
   - component: {fileID: 1915460576}
   m_Layer: 5
-  m_Name: GameImage
+  m_Name: GameImage3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1922,16 +1905,16 @@ MonoBehaviour:
   gameIcons:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: a2b349664e2dfee4ea27541b9070adf2, type: 3}
   - {fileID: 21300000, guid: 1e5a2a9f4bcf8584b9fb5deb7987adfc, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   gameScenes:
-  - 
-  - 
-  - 
+  - SniperGame
+  - PaaGame
+  - GameOver
 --- !u!1 &2027093258
 GameObject:
   m_ObjectHideFlags: 0
@@ -1944,7 +1927,7 @@ GameObject:
   - component: {fileID: 2027093261}
   - component: {fileID: 2027093260}
   m_Layer: 5
-  m_Name: GameImage
+  m_Name: GameImage0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2019,7 +2002,7 @@ GameObject:
   - component: {fileID: 2079375462}
   - component: {fileID: 2079375461}
   m_Layer: 5
-  m_Name: GameImage
+  m_Name: GameImage6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2094,7 +2077,7 @@ GameObject:
   - component: {fileID: 2120281535}
   - component: {fileID: 2120281534}
   m_Layer: 5
-  m_Name: GameImage
+  m_Name: GameImage2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
