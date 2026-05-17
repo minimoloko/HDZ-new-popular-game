@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public SceneChanger sceneChangerComponent = new SceneChanger();
     [Header("health settings")]
     public int maxHealth = 3;
     public float invincibilityTime = 1.5f;
@@ -56,6 +57,7 @@ public class PlayerHealth : MonoBehaviour
             am.StopMusic();
             Destroy(am.gameObject);
         }
+        sceneChangerComponent.LoadScene("WheelSpin");
     }
     // miganie i neuazvimost
     System.Collections.IEnumerator InvincibilityRoutine()

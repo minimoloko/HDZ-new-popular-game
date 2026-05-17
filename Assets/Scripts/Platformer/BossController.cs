@@ -1,8 +1,11 @@
 using System.Collections;
+using Unity.VectorGraphics;
 using UnityEngine;
 
 public class BossController : MonoBehaviour
 {
+    public SceneChanger sceneChangerComponent = new SceneChanger();
+
     [Header("Health")]
     public int maxHealth = 20;
     public EnemyHPBar hpBar;
@@ -147,6 +150,7 @@ public class BossController : MonoBehaviour
                 am.StopMusic();
                 Destroy(am.gameObject);
             }
+            sceneChangerComponent.LoadScene("WheelSpin"); 
         }
     }
 
