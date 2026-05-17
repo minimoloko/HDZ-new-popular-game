@@ -538,7 +538,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1427605420}
   m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: 0, y: 0, z: -2176}
+  m_LocalPosition: {x: 0, y: 0, z: -2524}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -547,7 +547,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1794}
+  m_AnchoredPosition: {x: 0, y: -1995}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1427605422
@@ -562,9 +562,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 508a92e07fecf0ec782f8dbc4c312e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StarWarsCredits
-  duration: 15
+  duration: 90
   mainMenuScene: MainMenu
-  scrollSpeed: 20
+  scrollSpeed: 7
 --- !u!1 &1822024851
 GameObject:
   m_ObjectHideFlags: 0
