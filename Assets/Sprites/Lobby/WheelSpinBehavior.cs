@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -71,7 +70,11 @@ public class WheelSpinBehavior : MonoBehaviour
     private IEnumerator WaitAndLoad(string sceneName, float delay)
     {
         yield return new WaitForSeconds(delay);
-
-        SceneManager.LoadScene(sceneName);
+        if (GameData.PaGameIsComplected)
+            SceneManager.LoadScene("SniperGame");
+        else if (GameData.SniperGameIsComplected)
+            SceneManager.LoadScene("PaaGame");
+        else 
+            SceneManager.LoadScene(sceneName);
     }
 }
